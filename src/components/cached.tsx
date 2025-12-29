@@ -1,7 +1,7 @@
 import { wait } from "@/utils"
 import { Card } from "./card"
 import { cacheTag } from "next/cache"
-import { CreatedAt } from "./created-at"
+import { Duration } from "./duration"
 
 interface Props {
   value?: string
@@ -12,6 +12,7 @@ export async function Cached({ value }: Props) {
   cacheTag("cached-component", "component", "all")
 
   await wait(5)
+  const date = new Date()
 
   return (
     <Card>
@@ -19,7 +20,11 @@ export async function Cached({ value }: Props) {
 
       {value && <p>Passed value: {value}</p>}
 
-      <CreatedAt target="component" />
+      <p>
+        This component created at: {date.toLocaleString("ja-JP")}
+        <br />
+        <Duration date={date} />
+      </p>
     </Card>
   )
 }
@@ -29,6 +34,7 @@ export async function CachedRemote({ value }: Props) {
   cacheTag("cached-remote-component", "component", "all")
 
   await wait(5)
+  const date = new Date()
 
   return (
     <Card>
@@ -38,13 +44,18 @@ export async function CachedRemote({ value }: Props) {
 
       {value && <p>Passed value: {value}</p>}
 
-      <CreatedAt target="component" />
+      <p>
+        This component created at: {date.toLocaleString("ja-JP")}
+        <br />
+        <Duration date={date} />
+      </p>
     </Card>
   )
 }
 
 export async function Uncached({ value }: Props) {
   await wait(5)
+  const date = new Date()
 
   return (
     <Card>
@@ -52,7 +63,11 @@ export async function Uncached({ value }: Props) {
 
       {value && <p>Passed value: {value}</p>}
 
-      <CreatedAt target="component" />
+      <p>
+        This component created at: {date.toLocaleString("ja-JP")}
+        <br />
+        <Duration date={date} />
+      </p>
     </Card>
   )
 }

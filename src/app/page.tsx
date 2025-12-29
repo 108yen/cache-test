@@ -19,17 +19,11 @@ export default function Home() {
         <li>
           <h2>Dynamic Pages</h2>
           <ul>
-            <li>Cached</li>
-            <li>Cached: remote</li>
-            <li>Uncached</li>
-
             <li>
-              <h2>Data Cache</h2>
-              <ul>
-                <li>Cached</li>
-                <li>Cached: remote</li>
-              </ul>
+              <Link href="/dynamic/1">Component Cache</Link>
             </li>
+
+            <li>Data Cache</li>
           </ul>
         </li>
       </ul>

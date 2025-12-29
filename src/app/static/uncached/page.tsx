@@ -4,14 +4,17 @@ import { Cached, CachedRemote, Uncached } from "@/components/cached"
 import { Suspense } from "react"
 import { Duration } from "@/components/duration"
 import { connection } from "next/server"
+import { VStack } from "@/components/stack"
 
 export default async function Page() {
   return (
     <PageLayout>
-      <h1>Uncached Page has Cached Dynamic Component</h1>
-      <Suspense fallback={<div>Loading...</div>}>
-        <CreatedAt />
-      </Suspense>
+      <VStack>
+        <h1>Uncached Page has Cached Dynamic Component</h1>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CreatedAt />
+        </Suspense>
+      </VStack>
 
       <Cached />
 

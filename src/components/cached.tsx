@@ -1,7 +1,9 @@
 import { wait } from "@/utils"
 import { Card } from "./card"
-import { cacheTag } from "next/cache"
+import { cacheTag, updateTag } from "next/cache"
 import { Duration } from "./duration"
+import { Button } from "./button"
+import { HStack } from "./stack"
 
 interface Props {
   value?: string
@@ -16,7 +18,18 @@ export async function Cached({ value }: Props) {
 
   return (
     <Card>
-      <h2>Cached Dynamic Component</h2>
+      <HStack>
+        <h2>Cached Dynamic Component</h2>
+
+        <Button
+          onClick={async () => {
+            "use server"
+            updateTag("cached-component")
+          }}
+        >
+          Purge Cache
+        </Button>
+      </HStack>
 
       {value && <p>Passed value: {value}</p>}
 
@@ -38,9 +51,20 @@ export async function CachedRemote({ value }: Props) {
 
   return (
     <Card>
-      <h2>
-        Cached <code>remote</code> Dynamic Component
-      </h2>
+      <HStack>
+        <h2>
+          Cached <code>remote</code> Dynamic Component
+        </h2>
+
+        <Button
+          onClick={async () => {
+            "use server"
+            updateTag("cached-remote-component")
+          }}
+        >
+          Purge Cache
+        </Button>
+      </HStack>
 
       {value && <p>Passed value: {value}</p>}
 

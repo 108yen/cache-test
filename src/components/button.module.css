@@ -11,4 +11,5 @@
    background-color: var(--foreground);
    font-weight: 500;
    cursor: pointer;
+   white-space: nowrap;
 }

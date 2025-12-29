@@ -1,0 +1,15 @@
+.root { 
+  display: flex;
+  gap: 1rem;
+}
+
+.vertical {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.horizontal {
+  flex-direction: row;
+  align-items: center;
+}

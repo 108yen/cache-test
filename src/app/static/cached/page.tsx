@@ -5,6 +5,7 @@ import { Cached, CachedRemote, Uncached } from "@/components/cached"
 import { Duration } from "@/components/duration"
 import { LoadingCard } from "@/components/loading-card"
 import { PageLayout } from "@/components/page-layout"
+import { VStack } from "@/components/stack"
 import { cacheTag, updateTag } from "next/cache"
 import { Suspense } from "react"
 
@@ -14,12 +15,14 @@ export default async function Page() {
 
   return (
     <PageLayout>
-      <h1>Cached Page</h1>
-      <p>
-        This page created at: {date.toLocaleString("ja-JP")}
-        <br />
-        <Duration date={date} />
-      </p>
+      <VStack>
+        <h1>Cached Page</h1>
+        <p>
+          This page created at: {date.toLocaleString("ja-JP")}
+          <br />
+          <Duration date={date} />
+        </p>
+      </VStack>
 
       <Cached />
 

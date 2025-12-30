@@ -1,7 +1,7 @@
 "use cache"
 
 import { Button } from "@/components/button"
-import { Cached, CachedRemote, Uncached } from "@/components/cached"
+import { Cached, CachedRemote, Uncached } from "@/cached/component"
 import { Duration } from "@/components/duration"
 import { LoadingCard } from "@/components/loading-card"
 import { PageLayout } from "@/components/page-layout"

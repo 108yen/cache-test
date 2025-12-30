@@ -20,10 +20,12 @@ export default function Home() {
           <h2>Dynamic Pages</h2>
           <ul>
             <li>
-              <Link href="/dynamic/1">Component Cache</Link>
+              <Link href="/dynamic/component/1">Component Cache</Link>
             </li>
 
-            <li>Data Cache</li>
+            <li>
+              <Link href="/dynamic/data/1">Data Cache</Link>
+            </li>
           </ul>
         </li>
       </ul>

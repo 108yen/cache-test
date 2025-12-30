@@ -1,6 +1,6 @@
 import { LoadingCard } from "@/components/loading-card"
 import { PageLayout } from "@/components/page-layout"
-import { Cached, CachedRemote, Uncached } from "@/components/cached"
+import { Cached, CachedRemote, Uncached } from "@/cached/component"
 import { Suspense } from "react"
 import { Duration } from "@/components/duration"
 import { connection } from "next/server"

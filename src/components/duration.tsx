@@ -20,3 +20,15 @@ export function Duration({ date }: { date: Date }) {
 
   return <span>{seconds} seconds ago.</span>
 }
+
+export function CreatedAt() {
+  const date = new Date()
+
+  return (
+    <p>
+      This page created at: {date.toLocaleString("ja-JP")}
+      <br />
+      <Duration date={date} />
+    </p>
+  )
+}

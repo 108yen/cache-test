@@ -1,41 +1,51 @@
+import { wait } from "@/utils"
 import { cacheTag } from "next/cache"
 
 interface Props {
-  value?: string
+  params?: Promise<{ slug: string }>
 }
 
-export async function cached({ value }: Props) {
+export async function cached({ params }: Props) {
   "use cache"
-  cacheTag(`cached-data-${value}`, "data", "all")
 
+  const { slug } = params ? await params : {}
+  cacheTag(`cached-data-${slug}`, "data", "all")
+
+  await wait(5)
   const date = new Date()
 
   return {
     date: date.toLocaleString("ja-JP"),
     timestamp: date.getTime(),
-    value,
+    value: slug,
   }
 }
 
-export async function cachedRemote({ value }: Props) {
+export async function cachedRemote({ params }: Props) {
   "use cache: remote"
-  cacheTag(`cached-remote-data-${value}`, "data", "all")
 
+  const { slug } = params ? await params : {}
+  cacheTag(`cached-remote-data-${slug}`, "data", "all")
+
+  await wait(5)
   const date = new Date()
 
   return {
     date: date.toLocaleString("ja-JP"),
     timestamp: date.getTime(),
-    value,
+    value: slug,
   }
 }
 
-export async function uncached({ value }: Props) {
+export async function uncached({ params }: Props) {
+  const { slug } = params ? await params : {}
+
+  await wait(5)
   const date = new Date()
 
   return {
     date: date.toLocaleString("ja-JP"),
     timestamp: date.getTime(),
-    value,
+    value: slug,
   }
 }

@@ -12,4 +12,5 @@
    font-weight: 500;
    cursor: pointer;
    white-space: nowrap;
+   position: relative;
 }

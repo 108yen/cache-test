@@ -6,11 +6,13 @@ import { Button } from "../components/button"
 import { HStack } from "../components/stack"
 
 interface Props {
-  value?: string
+  params?: Promise<{ slug: string }>
 }
 
-export async function Cached({ value }: Props) {
+export async function Cached({ params }: Props) {
   "use cache"
+
+  const { slug: value } = params ? await params : {}
   cacheTag(`cached-component-${value}`, "component", "all")
 
   await wait(5)
@@ -42,8 +44,10 @@ export async function Cached({ value }: Props) {
   )
 }
 
-export async function CachedRemote({ value }: Props) {
+export async function CachedRemote({ params }: Props) {
   "use cache: remote"
+
+  const { slug: value } = params ? await params : {}
   cacheTag(`cached-remote-component-${value}`, "component", "all")
 
   await wait(5)
@@ -77,7 +81,9 @@ export async function CachedRemote({ value }: Props) {
   )
 }
 
-export async function Uncached({ value }: Props) {
+export async function Uncached({ params }: Props) {
+  const { slug: value } = params ? await params : {}
+
   await wait(5)
   const date = new Date()
 

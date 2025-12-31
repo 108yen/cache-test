@@ -32,15 +32,11 @@ export default async function Page({
         <h2>With Parameters</h2>
 
         <Suspense fallback={<LoadingCard />}>
-          {params.then(({ slug }) => (
-            <Cached value={slug} />
-          ))}
+          <Cached params={params} />
         </Suspense>
 
         <Suspense fallback={<LoadingCard />}>
-          {params.then(({ slug }) => (
-            <CachedRemote value={slug} />
-          ))}
+          <CachedRemote params={params} />
         </Suspense>
       </Card>
 

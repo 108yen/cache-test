@@ -32,7 +32,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,4 +46,11 @@ ul {
   flex-direction: column;
   margin-inline-start: 1.4em;
   gap: 0.5rem;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 1;
 }

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import styles from "./page.module.css"
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <ul>
         <li>
           <h2>Static Pages</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <Link href="/static/cached">Cached</Link>
             </li>
@@ -18,7 +19,7 @@ export default function Home() {
 
         <li>
           <h2>Dynamic Pages</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>
               <Link href="/dynamic/component/1">Component Cache</Link>
             </li>

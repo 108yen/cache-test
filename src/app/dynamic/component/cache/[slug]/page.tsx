@@ -1,5 +1,5 @@
 import { Button } from "@/components/button"
-import { DataCached, DataCachedRemote } from "@/cached/component"
+import { Cached } from "@/cached/component"
 import { Card } from "@/components/card"
 import { CreatedAt } from "@/components/duration"
 import { LoadingCard } from "@/components/loading-card"
@@ -10,7 +10,7 @@ import { Suspense } from "react"
 
 export default async function Page({
   params,
-}: PageProps<"/dynamic/data/[slug]">) {
+}: PageProps<"/dynamic/component/cache/[slug]">) {
   return (
     <PageLayout>
       <VStack>
@@ -23,30 +23,24 @@ export default async function Page({
       <Card>
         <h2>Without Parameters</h2>
 
-        <DataCached />
-
-        <DataCachedRemote />
+        <Cached />
       </Card>
 
       <Card>
         <h2>With Parameters</h2>
 
         <Suspense fallback={<LoadingCard />}>
-          <DataCached params={params} />
-        </Suspense>
-
-        <Suspense fallback={<LoadingCard />}>
-          <DataCachedRemote params={params} />
+          <Cached params={params} />
         </Suspense>
       </Card>
 
       <Button
         onClick={async () => {
           "use server"
-          updateTag("data")
+          updateTag("component")
         }}
       >
-        Purge Data Cache
+        Purge Components Cache
       </Button>
     </PageLayout>
   )

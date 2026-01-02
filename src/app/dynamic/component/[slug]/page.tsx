@@ -10,7 +10,7 @@ import { Suspense } from "react"
 
 export default async function Page({
   params,
-}: PageProps<"/dynamic/data/[slug]">) {
+}: PageProps<"/dynamic/component/[slug]">) {
   return (
     <PageLayout>
       <VStack>

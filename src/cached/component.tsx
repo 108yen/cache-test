@@ -34,7 +34,7 @@ export async function Cached({ params }: Props) {
         </Button>
       </HStack>
 
-      {slug && <p>Passed value: {slug}</p>}
+      {slug && <p>Value: {slug}</p>}
 
       <p>
         This component created at: {date.toLocaleString("ja-JP")}
@@ -71,7 +71,7 @@ export async function CachedRemote({ params }: Props) {
         </Button>
       </HStack>
 
-      {slug && <p>Passed value: {slug}</p>}
+      {slug && <p>Value: {slug}</p>}
 
       <p>
         This component created at: {date.toLocaleString("ja-JP")}
@@ -92,7 +92,7 @@ export async function Uncached({ params }: Props) {
     <Card>
       <h2>Uncached Dynamic Component</h2>
 
-      {slug && <p>Passed value: {slug}</p>}
+      {slug && <p>Value: {slug}</p>}
 
       <p>
         This component created at: {date.toLocaleString("ja-JP")}
@@ -121,7 +121,7 @@ export async function DataCached({ params }: Props) {
         </Button>
       </HStack>
 
-      {value && <p>Passed value: {value}</p>}
+      {value && <p>Value: {value}</p>}
 
       <p>
         This data created at: {date}
@@ -152,7 +152,7 @@ export async function DataCachedRemote({ params }: Props) {
         </Button>
       </HStack>
 
-      {value && <p>Passed value: {value}</p>}
+      {value && <p>Value: {value}</p>}
 
       <p>
         This data created at: {date}
@@ -170,7 +170,7 @@ export async function DataUncached({ params }: Props) {
     <Card>
       <h2>Uncached Dynamic Data</h2>
 
-      {value && <p>Passed value: {value}</p>}
+      {value && <p>Value: {value}</p>}
 
       <p>
         This data created at: {date}

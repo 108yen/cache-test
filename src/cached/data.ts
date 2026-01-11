@@ -14,6 +14,8 @@ export async function cached({ params }: Props) {
   await wait(5)
   const date = new Date()
 
+  console.log(`Cached data with slug: ${slug} at ${date.toISOString()}`)
+
   return {
     date: date.toLocaleString("ja-JP"),
     timestamp: date.getTime(),
@@ -30,6 +32,8 @@ export async function cachedRemote({ params }: Props) {
   await wait(5)
   const date = new Date()
 
+  console.log(`Cached remote data with slug: ${slug} at ${date.toISOString()}`)
+
   return {
     date: date.toLocaleString("ja-JP"),
     timestamp: date.getTime(),
@@ -42,6 +46,8 @@ export async function uncached({ params }: Props) {
 
   await wait(5)
   const date = new Date()
+
+  console.log(`Uncached data with slug: ${slug} at ${date.toISOString()}`)
 
   return {
     date: date.toLocaleString("ja-JP"),

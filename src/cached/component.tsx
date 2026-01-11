@@ -19,6 +19,10 @@ export async function Cached({ params }: Props) {
   await wait(5)
   const date = new Date()
 
+  console.log(
+    `Cached component rendered with slug: ${slug} at ${date.toISOString()}`,
+  )
+
   return (
     <Card>
       <HStack>
@@ -54,6 +58,10 @@ export async function CachedRemote({ params }: Props) {
   await wait(5)
   const date = new Date()
 
+  console.log(
+    `Cached remote component rendered with slug: ${slug} at ${date.toISOString()}`,
+  )
+
   return (
     <Card>
       <HStack>
@@ -87,6 +95,10 @@ export async function Uncached({ params }: Props) {
 
   await wait(5)
   const date = new Date()
+
+  console.log(
+    `Uncached component rendered with slug: ${slug} at ${date.toISOString()}`,
+  )
 
   return (
     <Card>
